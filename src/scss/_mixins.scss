@@ -1,0 +1,28 @@
+// Media query breakpoint
+//--------------------------
+
+@mixin custom-screen($minWidth,$maxWidth) {
+	@media only (min-width: $minWidth) and (max-width: $maxWidth) {
+		@content;
+	}
+}
+
+@mixin breakpoint($point) {
+	@if $point == desktop {
+		@media (min-width: $screen-md-min) {
+			@content;
+		}
+	} @else if $point == tablet {
+		@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+			@content;
+		}
+	} @else if $point == device {
+		@media (max-width: $screen-sm-max) {
+			@content;
+		}
+	} @else if $point == mobile {
+		@media (max-width: $screen-xs-max) {
+			@content;
+		}
+	}
+}

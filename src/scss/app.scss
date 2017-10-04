@@ -1,0 +1,62 @@
+@import "../scss/variables";
+@import "../scss/mixins";
+@import "../scss/slick_carousel";
+
+* {
+	box-sizing: border-box;
+}
+.c-body__content {
+	max-width: $container-max-width;
+	margin: 0 auto;
+}
+.c-product__carousel,.c-product__carousel--vertical {
+	opacity: 0;
+	&.slick-initialized{
+		opacity: 1;
+	}	
+	.c-product__tile {
+		display: block;
+		overflow: hidden;
+		height: 250px;
+		margin: 3px;
+		padding: 10px;
+		border: 2px solid #ddd;
+		border-radius: 4px;
+		text-decoration: none;
+		background: #fff;
+		color: #333;
+		&:hover {
+			border: 2px solid #0084b4;
+		}
+	}
+	.c-product__tile--name {
+		display: block;
+	    margin-bottom: 10px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	.c-product__tile--image {
+		width: 135px;
+		height: 77px;
+		display: inline-block;
+		box-shadow: 0px 1px 1px 1px #ddd;
+		img {
+			width: 100%;
+		}
+	}
+
+}
+
+.c-product__carousel--horizontal-tiles,.c-product__carousel--vertical-tiles {
+	border: 1px solid #light-grey;
+	padding: 30px;
+} 
+.c-product__carousel--vertical-tiles {
+	width: 300px;
+	position: relative;
+	margin: 30px auto;
+	@include breakpoint(mobile) {
+		width: 100%;
+	}
+}

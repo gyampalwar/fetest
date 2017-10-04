@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distrelec Tech Test - Front End Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../dist/css/app.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script src="../dist/lib/concat.min.js"></script>
+</head>
+
+<body>
+    <header>
+        
+    </header>
+    <!-- Good Luck! The Dev Gods Are Watching You. -->
+
+    <div>
+    
+        <script>
+            var urlData='https://gist.githubusercontent.com/roblos12/151417b9d5bcd444a2351b6d58db3fdc/raw/acc7ed077a9eb0cba0651bf9759d7b58cacc83c3/data.json';
+        </script>
+
+        <div class="c-body__content">
+
+            <div class="c-product__carousel--horizontal-tiles">
+                <h2>Horizontal Carousel</h2>
+                <div id="c-product__carousel" class="c-product__carousel">
+                    
+                </div>
+            </div>
+
+            <div class="c-product__carousel--vertical-tiles">
+                <h2>Vertical Carousel</h2>
+                <span class="top-arrow"></span>
+                <div id="c-product__carousel--vertical" class="c-product__carousel--vertical">
+                
+                </div>
+                <span class="bottom-arrow"></span>
+            </div>
+            
+            
+
+         
+            <script id="c-product__tile--template" type="text/template">
+                {{#carouselData}}
+                    <div class="c-product__tile">
+                        <span class="c-product__tile--name"> {{name}} </span>
+                        <span class="c-product__tile--image"><img src="{{productImageUrl}}" title="{{productImageAltText}}"></span>
+                    </div>
+                {{/carouselData}}
+            </script>
+         
+            <script>
+                var slingshot = function (url, tplId, anchor) {
+                    $.getJSON(url, function(data) {
+                        var template = $(tplId).html();
+                        var stone = Handlebars.compile(template)(data);
+                        $(anchor).append(stone);
+                    });
+                }
+                slingshot(urlData, '#c-product__tile--template', '#c-product__carousel');
+                slingshot(urlData, '#c-product__tile--template', '#c-product__carousel--vertical'); 
+            </script>
+        </div>
+    </div>
+
+    <footer>
+        <script src="../dist/js/app.js"></script>
+    </footer>
+
+</body>
+
+</html>
